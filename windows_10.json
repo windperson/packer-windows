@@ -11,8 +11,9 @@
       "ssh_password": "vagrant",
       "ssh_wait_timeout": "2h",
       "shutdown_command": "shutdown /s /t 10 /f /d p:4:1 /c \"Packer Shutdown\"",
-      "guest_os_type": "Windows81_64",
-      "disk_size": 61440,
+      "guest_os_type": "Windows10_64",
+      "hard_drive_interface": "sata", 
+      "disk_size": 122880,
       "floppy_files": [
         "{{user `autounattend`}}",
         "./scripts/fixnetwork.ps1",
@@ -33,6 +34,32 @@
           "{{.Name}}",
           "--cpus",
           "2"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--vram",
+          "128"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--accelerate3d", "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--accelerate2dvideo", "on"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--audio", "dsound"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--audiocontroller", "hda"
         ]
       ]
     }
@@ -44,10 +71,8 @@
       "execute_command": "{{.Vars}} cmd /c C:/Windows/Temp/script.bat",
       "scripts": [
         "./scripts/vm-guest-tools.bat",
-        "./scripts/vagrant-ssh.bat",
-        "./scripts/disable-auto-logon.bat",
+        "./scripts/vagrant-ssh.bat",        
         "./scripts/enable-rdp.bat",
-        "./scripts/compile-dotnet-assemblies.bat",
         "./scripts/compact.bat"
       ]
     }
