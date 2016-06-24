@@ -278,7 +278,7 @@
                     <Description>Remove preinstalled CandyCrush in Win10</Description>
                 </SynchronousCommand>
 
-                <SynchronousCommand wcm:action="add">
+                <!--<SynchronousCommand wcm:action="add">
                     <CommandLine>cmd.exe /c powershell -Command "Get-AppxPackage *MicrosoftOfficeHub* | Remove-AppxPackage"</CommandLine>
                     <Order>32</Order>
                     <Description>Remove preinstalled "Get Office" in Win10</Description>
@@ -306,7 +306,7 @@
                     <CommandLine>cmd.exe /c powershell -Command "Get-AppxPackage *Bing* | Remove-AppxPackage"</CommandLine>
                     <Order>35</Order>
                     <Description>Remove all preinstalled "Bing News/Money/Sports/Weather" Apps in Win10</Description>
-                </SynchronousCommand>
+                </SynchronousCommand>-->
 
                 <!-- WITHOUT WINDOWS UPDATES -->
                 
