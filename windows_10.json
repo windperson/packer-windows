@@ -60,7 +60,14 @@
           "modifyvm",
           "{{.Name}}",
           "--audiocontroller", "hda"
-        ]
+        ],
+        [
+          "storagectl",
+          "{{.Name}}",
+          "--name", "SATA Controller",
+          "--portcount","3",
+          "--hostiocache","on"
+        ]    
       ]
     }
   ],
